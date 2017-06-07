@@ -6,15 +6,7 @@
 <%@ include file="pages/head.jsp"%>
 <body>
 <%@ include file="pages/header.jsp" %>
-<jsp:useBean id="dao" class="br.com.sigefs.dao.FornecedorDao"/>
-	
 
-<table> 
-	<c:forEach var="f" items="${dao.getLista}"> 
-		<tr> 
-			<td>${f.nome}</td> 
-		</tr> 
-	</c:forEach> 
-</table>
+	
 </body>
 </html>
