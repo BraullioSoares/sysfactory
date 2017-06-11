@@ -1,14 +1,14 @@
 package br.com.sigefs.model;
 
 public class Fornecedor {
-	private int id;
+	private Integer id;
 	private String nome;
 	private String email;
 	private String tel;
 	private String tipoProduto;
 	
 	
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
@@ -47,6 +47,12 @@ public class Fornecedor {
 
 	public void setTipoProduto(String tipoProduto) {
 		this.tipoProduto = tipoProduto;
+	}
+	
+	@Override
+	public String toString() {
+		return "Fornecedor [id=" + id + ", nome=" + nome + ", email=" + email + ", tel=" + tel + ", tipoProduto="
+				+ tipoProduto + "]";
 	}
 
 	

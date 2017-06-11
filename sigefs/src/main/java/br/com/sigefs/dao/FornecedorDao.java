@@ -94,7 +94,7 @@ public class FornecedorDao implements CrudFornecedor{
 	
 	@Override
 	public void salvar(Fornecedor f) {
-		if (f.getId()!= -1) {
+		if (f.getId() != null) {
 			altera(f);
 		} else {
 			adiciona(f);
@@ -109,10 +109,75 @@ public class FornecedorDao implements CrudFornecedor{
 			ps.setInt(1, f.getId());
 			ps.executeQuery();
 			ps.close();
-		} catch (Exception e) {
-			// TODO: handle exception
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
 		}
 		
 	}
 	
+	/**
+	 *Busca de um resgistro no banco de dados pelo o numero de id do usuario
+	 *
+	 *@param id é um inteiro que representa o numero do id do usuario a ser buscado 
+	 *@return returna um objeto quando encontra e um null quando nao encontra.
+	 */
+	@Override
+	public Fornecedor buscaPorId (Integer id){
+		
+		String sql = "select * from fornecedores where id =?";
+		
+		try (PreparedStatement stmt = connection.prepareStatement(sql)){
+			stmt.setInt(1, id);
+			
+			ResultSet resultado = stmt.executeQuery();
+			
+			// posicionando o cursor no primeiro registro;
+			if (resultado.next()){
+				Fornecedor f = new Fornecedor();
+				f.setId(resultado.getInt("id"));
+				f.setNome(resultado.getString("nome"));
+				f.setEmail(resultado.getString("email"));
+				f.setTel(resultado.getString("tel"));
+				f.setTipoProduto(resultado.getString("tipoProduto"));
+				
+				return f;
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	/**
+	 *Realiza a busca de varios registros da tabela de Fornecedores
+	 *@return returna uma lista de fornecedores ou zero quando nao tiver.
+	 */
+	@Override
+	public List<Fornecedor> buscarTodos (){
+		
+		String sql = "select * from fornecedores";
+		
+		List<Fornecedor> forns = new ArrayList<Fornecedor>();
+		try (PreparedStatement stmt = connection.prepareStatement(sql)){
+			
+			ResultSet resultado = stmt.executeQuery();
+			
+			// posicionando o cursor no primeiro registro;
+			while (resultado.next()){
+				Fornecedor f = new Fornecedor();
+				f.setId(resultado.getInt("id"));
+				f.setNome(resultado.getString("nome"));
+				f.setEmail(resultado.getString("email"));
+				f.setTel(resultado.getString("tel"));
+				f.setTipoProduto(resultado.getString("tipoProduto"));
+				
+				forns.add(f);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return forns;
+	}
 }

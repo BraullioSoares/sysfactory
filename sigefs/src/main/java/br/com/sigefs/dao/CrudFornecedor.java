@@ -8,13 +8,17 @@ public interface CrudFornecedor {
 	
 	void adiciona (Fornecedor f);
 	
-	public List<Fornecedor> getLista();
+	public List<Fornecedor> getLista ();
 
-	public void altera(Fornecedor f);
+	public void altera (Fornecedor f);
 
-	public void remove(Fornecedor f);
+	public void remove (Fornecedor f);
 	
 	public void salvar (Fornecedor f);
+	
+	public Fornecedor buscaPorId (Integer id);
+	
+	public List<Fornecedor> buscarTodos ();
 
-	public void close();
+	public void close ();
 }
