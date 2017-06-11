@@ -75,14 +75,43 @@ public class FornecedorDao implements CrudFornecedor{
 	}
 
 	@Override
-	public void altera(Fornecedor contato) {
-		// TODO Auto-generated method stub
-		
+	public void altera(Fornecedor f) {
+		String sql = "update fornecedores set nome=?, email=?," + "tel=?, tipoProduto=? where id=?";
+
+		try {
+			PreparedStatement stmt = connection.prepareStatement(sql);
+			stmt.setString(1, f.getNome());
+			stmt.setString(2, f.getEmail());
+			stmt.setString(3, f.getTel());
+			stmt.setString(4, f.getTipoProduto());
+			stmt.setInt(5, f.getId());
+			stmt.execute();
+			stmt.close();
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
+	
+	@Override
+	public void salvar(Fornecedor f) {
+		if (f.getId()!= -1) {
+			altera(f);
+		} else {
+			adiciona(f);
+		}
 	}
 
 	@Override
-	public void remove(Fornecedor contato) {
-		// TODO Auto-generated method stub
+	public void remove(Fornecedor f) {
+		try {
+			String sql = "delete from fornecedores where id = ?";
+			PreparedStatement ps = connection.prepareStatement(sql);
+			ps.setInt(1, f.getId());
+			ps.executeQuery();
+			ps.close();
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 		
 	}
 	

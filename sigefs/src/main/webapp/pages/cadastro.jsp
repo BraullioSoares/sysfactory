@@ -1,6 +1,6 @@
 <div class="container col-md-6">
   <h2>Cadastro</h2>
-  <form action="/">
+  <form action="sistema">
   	<div class="form-group">
       <label for="name">Nome:</label>
       <input type="text" class="form-control" id="name" placeholder="Razão Social" name="name">

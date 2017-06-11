@@ -20,7 +20,7 @@ public class CadastrarFornecedor implements Logica {
 		
 		dao.adiciona(f);
 		
-		return "sistema?logica=CadastrarFornLogic";
+		return "sistema?logica=index.jsp";
 	}
 
 }
