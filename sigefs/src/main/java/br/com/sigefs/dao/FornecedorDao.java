@@ -107,7 +107,7 @@ public class FornecedorDao implements CrudFornecedor{
 			String sql = "delete from fornecedores where id = ?";
 			PreparedStatement ps = connection.prepareStatement(sql);
 			ps.setInt(1, f.getId());
-			ps.executeQuery();
+			ps.execute();
 			ps.close();
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
