@@ -8,26 +8,31 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import br.com.sigefs.dao.FornecedorDao;
-import br.com.sigefs.model.Fornecedor;
+import br.com.sigefs.logica.Logica;
+
 
 @WebServlet(name="sistema", urlPatterns = {"/sistema.do","/pages/sistema.do"})
 public class ServletController extends HttpServlet{
 
 	private static final long serialVersionUID = 1L;
 
-	protected void doGet(HttpServletRequest req, 
+	protected void service(HttpServletRequest req, 
 			HttpServletResponse resp) throws ServletException, IOException{
-		Fornecedor f = new Fornecedor();
-		f.setNome(req.getParameter("name"));
-		f.setEmail(req.getParameter("email"));
-		f.setTel(req.getParameter("phone"));
-		f.setTipoProduto(req.getParameter("tipoProd"));
 		
-		FornecedorDao dao = new FornecedorDao();
+		String param = req.getParameter("cadastrar");
+		String nomeDaClasse = "br.com.sigefs.logica." + param;
 		
-		dao.adiciona(f);
-		
+		try {
+			Class classe = 	Class.forName(nomeDaClasse);
+			
+			Logica logica = (Logica) classe.newInstance();
+			String pagina = logica.executa(req, resp);
+			
+			req.getRequestDispatcher(pagina).forward(req, resp);
+		} catch (Exception e) {
+			throw new ServletException("Ops! algo deu errado com a logica", e);
+			
+		}
 		System.out.println("Sucesso");
 	}
 }

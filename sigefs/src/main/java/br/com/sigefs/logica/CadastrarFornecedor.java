@@ -1,4 +1,4 @@
-package br.com.sigefs.controller;
+package br.com.sigefs.logica;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -11,16 +11,16 @@ public class CadastrarFornecedor implements Logica {
 	@Override
 	public String executa(HttpServletRequest req, HttpServletResponse resp) throws Exception {
 		Fornecedor f = new Fornecedor();
-		f.setNome(req.getParameter("nome"));
+		f.setNome(req.getParameter("name"));
 		f.setEmail(req.getParameter("email"));
-		f.setTel(req.getParameter("tel"));
-		f.setTipoProduto(req.getParameter("tipoProduto"));
+		f.setTel(req.getParameter("phone"));
+		f.setTipoProduto(req.getParameter("tipoProd"));
 		
 		FornecedorDao dao = new FornecedorDao();
 		
 		dao.adiciona(f);
 		
-		return "sistema?logica=index.jsp";
+		return "visualizar.html";
 	}
 
 }

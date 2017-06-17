@@ -1,4 +1,4 @@
-package br.com.sigefs.controller;
+package br.com.sigefs.logica;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

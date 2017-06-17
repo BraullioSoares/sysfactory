@@ -1,6 +1,6 @@
 <div class="container col-md-6">
   <h2>Cadastro</h2>
-  <form action="sistema.do">
+  <form action="sistema.do" method="post">
   	<div class="form-group">
       <label for="name">Nome:</label>
       <input type="text" class="form-control" id="name" placeholder="Razão Social" name="name">
@@ -17,6 +17,7 @@
       <label for="tipoProd">Matéria Prima :</label>
       <textarea class="form-control" rows="5" id="tipoProd" name="tipoProd"></textarea>
     </div>
+      <input type="text" name="cadastrar" value="CadastrarFornecedor" class="hidden">
       <button type="submit" class="btn btn-success">Cadaastrar</button>
   </form>
 </div>
