@@ -17,7 +17,7 @@
       <label for="tipoProd">Matéria Prima :</label>
       <textarea class="form-control" rows="5" id="tipoProd" name="tipoProd"></textarea>
     </div>
-      <input type="text" name="cadastrar" value="CadastrarFornecedor" class="hidden">
+      <input type="text" name="logica" value="CadastrarFornecedor" class="hidden">
       <button type="submit" class="btn btn-success">Cadaastrar</button>
   </form>
 </div>

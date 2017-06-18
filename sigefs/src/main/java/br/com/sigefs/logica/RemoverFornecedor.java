@@ -6,21 +6,22 @@ import javax.servlet.http.HttpServletResponse;
 import br.com.sigefs.dao.FornecedorDao;
 import br.com.sigefs.model.Fornecedor;
 
-public class CadastrarFornecedor implements Logica {
+public class RemoverFornecedor implements Logica{
 
 	@Override
 	public String executa(HttpServletRequest req, HttpServletResponse resp) throws Exception {
+		String id = req.getParameter("id");
+		
 		Fornecedor f = new Fornecedor();
-		f.setNome(req.getParameter("name"));
-		f.setEmail(req.getParameter("email"));
-		f.setTel(req.getParameter("phone"));
-		f.setTipoProduto(req.getParameter("tipoProd"));
+		
+		if (id != null)
+			f.setId(Integer.parseInt(id));
 		
 		FornecedorDao dao = new FornecedorDao();
 		
-		dao.adiciona(f);
-		
-		return "fornecedores.jsp";
+		dao.remove(f);
+			
+		return "/WEB-INF/jsp/lista-fornecedor.jsp";
 	}
 
 }

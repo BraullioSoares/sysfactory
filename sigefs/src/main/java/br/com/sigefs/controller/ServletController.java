@@ -19,7 +19,7 @@ public class ServletController extends HttpServlet{
 	protected void service(HttpServletRequest req, 
 			HttpServletResponse resp) throws ServletException, IOException{
 		
-		String param = req.getParameter("cadastrar");
+		String param = req.getParameter("logica");
 		String nomeDaClasse = "br.com.sigefs.logica." + param;
 		
 		try {
@@ -33,6 +33,5 @@ public class ServletController extends HttpServlet{
 			throw new ServletException("Ops! algo deu errado com a logica", e);
 			
 		}
-		System.out.println("Sucesso");
 	}
 }
