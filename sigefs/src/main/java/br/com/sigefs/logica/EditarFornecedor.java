@@ -1,26 +1,23 @@
 package br.com.sigefs.logica;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import br.com.sigefs.dao.FornecedorDao;
 import br.com.sigefs.model.Fornecedor;
 
-public class CadastrarFornecedor implements Logica {
+public class EditarFornecedor implements Logica{
 
 	@Override
 	public String executa(HttpServletRequest req, HttpServletResponse resp) throws Exception {
-		Fornecedor f = new Fornecedor();
-		f.setNome(req.getParameter("name"));
-		f.setEmail(req.getParameter("email"));
-		f.setTel(req.getParameter("phone"));
-		f.setTipoProduto(req.getParameter("tipoProd"));
-		
+		String id = req.getParameter("id");
 		FornecedorDao dao = new FornecedorDao();
+		Fornecedor f = dao.buscaPorId(Integer.parseInt(id));
 		
-		dao.salvar(f);
+		req.setAttribute("forn", f);
 		
-		return "formularioNew.jsp";
+		return "formularioEdit.jsp";
 	}
 
 }

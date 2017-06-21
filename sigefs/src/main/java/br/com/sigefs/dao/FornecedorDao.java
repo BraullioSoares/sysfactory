@@ -40,7 +40,7 @@ public class FornecedorDao implements CrudFornecedor{
 		try {
 			
 			List<Fornecedor> forn = new ArrayList<>();
-			PreparedStatement stmt = this.connection.prepareStatement("select * from fornecedores");
+			PreparedStatement stmt = this.connection.prepareStatement("select * from fornecedores order by id");
 			ResultSet rs = stmt.executeQuery();
 			
 			while(rs.next()){

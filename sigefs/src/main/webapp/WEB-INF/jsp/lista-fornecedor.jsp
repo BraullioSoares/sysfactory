@@ -8,8 +8,20 @@
 	href="libs/bootstrap/css/bootstrap.min.css">
 <script src="libs/jquery/jquery.min.js"></script>
 <script src="libs/bootstrap/js/bootstrap.min.js"></script>
+<script>
+	function confirmaExclusao (id) {
+		if (window.confirm("Tem certeza que deseja excluir?")){
+			location.href="sistema.do?logica=RemoverFornecedor&id="+id;
+		}
+	}
+	function btnEditar (id) {
+		location.href="sistema.do?logica=EditarFornecedor&id="+id;
+	}
+</script>
 <meta charset="utf-8">
 <title>Sigefs</title>
+
+
 </head>
 
 <body>
@@ -25,7 +37,7 @@
 						data-toggle="dropdown" href="#">Forncedores <span
 							class="caret"></span></a>
 						<ul class="dropdown-menu">
-							<li><a href="fornecedores.jsp">Cadastrar</a></li>
+							<li><a href="formularioNew.jsp">Cadastrar</a></li>
 							<li><a href="sistema.do?logica=ListaFornecedor">Visualizar</a></li>
 						</ul></li>
 					<li><a href="#">Produtos</a></li>
@@ -55,8 +67,11 @@
 					<td>${fornecedor.email}</td>
 					<td>${fornecedor.tel}</td>
 					<td>${fornecedor.tipoProduto}</td>
-					<td><buttom class="btn btn-success">Editar</buttom></td>
-					<td><buttom class="btn btn-danger"><a href="sistema.do?logica=RemoverFornecedor">Excluir</a></buttom></td>
+					<td>
+						<buttom class="btn btn-success" onclick="btnEditar(${fornecedor.id})">Editar</buttom>
+						<buttom class="btn btn-danger" onclick="confirmaExclusao(${fornecedor.id})">Excluir</buttom>
+					</td>
+					
 				</tr>
 			</tbody>
 		</c:forEach>

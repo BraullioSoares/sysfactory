@@ -10,10 +10,8 @@ public class RemoverFornecedor implements Logica{
 
 	@Override
 	public String executa(HttpServletRequest req, HttpServletResponse resp) throws Exception {
-		String id = req.getParameter("id");
-		
 		Fornecedor f = new Fornecedor();
-		
+		String id =  req.getParameter("id");
 		if (id != null)
 			f.setId(Integer.parseInt(id));
 		
