@@ -10,7 +10,7 @@
 				<li class="dropdown"><a class="dropdown-toggle"
 					data-toggle="dropdown" href="#">Forncedores <span class="caret"></span></a>
 					<ul class="dropdown-menu">
-						<li><a href="formularioNew.jsp">Cadastrar</a></li>
+						<li><a href="/WEB-INF/jsp/formularioNew.jsp">Cadastrar</a></li>
 						<li><a href="sistema.do?logica=ListaFornecedor">Visualizar</a></li>
 					</ul></li>
 				<li><a href="#">Produtos</a></li>

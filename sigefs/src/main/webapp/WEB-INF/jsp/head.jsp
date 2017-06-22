@@ -3,7 +3,9 @@
 <!DOCTYPE html>
 <head>
 <link rel="stylesheet" type="text/css" href="libs/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="libs/css/style.css">
 <script src="libs/jquery/jquery.min.js"></script>
+<script src="libs/js/main.js"></script>
 <script src="libs/bootstrap/js/bootstrap.min.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Sigefs</title>

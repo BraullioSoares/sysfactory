@@ -17,16 +17,16 @@ public class FornecedorDao implements CrudFornecedor{
 	}
 	
 	@Override
-	public void adiciona (Fornecedor produto) {
+	public void adiciona (Fornecedor f) {
 		
 		String sql =  "insert into fornecedores " + "(nome,email,tel,tipoProduto)"
 				+ " values (?,?,?,?)";
 		try{
 			PreparedStatement stmt = connection.prepareStatement(sql);
-			stmt.setString(1, produto.getNome());
-			stmt.setString(2, produto.getEmail());
-			stmt.setString(3, produto.getTel());
-			stmt.setString(4, produto.getTipoProduto());
+			stmt.setString(1, f.getNome());
+			stmt.setString(2, f.getEmail());
+			stmt.setString(3, f.getTel());
+			stmt.setString(4, f.getTipoProduto());
 			stmt.execute();
 			stmt.close();
 		}catch(SQLException e){

@@ -11,16 +11,15 @@ public class CadastrarFornecedor implements Logica {
 	@Override
 	public String executa(HttpServletRequest req, HttpServletResponse resp) throws Exception {
 		Fornecedor f = new Fornecedor();
-		f.setNome(req.getParameter("name"));
-		f.setEmail(req.getParameter("email"));
-		f.setTel(req.getParameter("phone"));
-		f.setTipoProduto(req.getParameter("tipoProd"));
-		
-		FornecedorDao dao = new FornecedorDao();
-		
-		dao.salvar(f);
-		
-		return "formularioNew.jsp";
+		if (req.getParameter("name") != null) {
+			f.setNome(req.getParameter("name"));
+			f.setEmail(req.getParameter("email"));
+			f.setTel(req.getParameter("phone"));
+			f.setTipoProduto(req.getParameter("tipoProd"));
+			FornecedorDao dao = new FornecedorDao();
+			dao.salvar(f);
+		}
+		return "/WEB-INF/jsp/formularioNew.jsp";
 	}
 
 }

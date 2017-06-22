@@ -3,27 +3,29 @@ package br.com.sigefs.teste;
 import java.util.List;
 
 import br.com.sigefs.dao.FornecedorDao;
+import br.com.sigefs.dao.UsuarioDao;
 import br.com.sigefs.model.Fornecedor;
+import br.com.sigefs.model.Usuario;
 
 public class TestaConexao {
 
 	public static void main(String[] args){
-//		testAdiiona();
-		testRemove(10);
-		testBuscarTodos();
+		testAdiciona();
+//		testRemove(10);
+//		testBuscarTodos();
 	
 	}
 	
-	private static void testAdiiona (){
-		FornecedorDao dao = new FornecedorDao();
-		Fornecedor f = new Fornecedor();
+	private static void testAdiciona (){
+		UsuarioDao dao = new UsuarioDao();
+		Usuario u = new Usuario();
 		
-		f.setNome("Joao");
-		f.setEmail("joao@joao.com");
-		f.setTel("88 9 99999-2222");
-		f.setTipoProduto("cabos");
 		
-		dao.adiciona(f);
+		u.setEmail("joao@joao.com");
+		u.setUser("joao");
+		u.setSenha("123");
+		
+		dao.adiciona(u);
 		
 	} 
 	

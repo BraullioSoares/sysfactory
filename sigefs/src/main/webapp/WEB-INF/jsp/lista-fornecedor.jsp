@@ -8,19 +8,9 @@
 	href="libs/bootstrap/css/bootstrap.min.css">
 <script src="libs/jquery/jquery.min.js"></script>
 <script src="libs/bootstrap/js/bootstrap.min.js"></script>
-<script>
-	function confirmaExclusao (id) {
-		if (window.confirm("Tem certeza que deseja excluir?")){
-			location.href="sistema.do?logica=RemoverFornecedor&id="+id;
-		}
-	}
-	function btnEditar (id) {
-		location.href="sistema.do?logica=EditarFornecedor&id="+id;
-	}
-</script>
+<script src="libs/js/main.js"></script>
 <meta charset="utf-8">
 <title>Sigefs</title>
-
 
 </head>
 
@@ -37,7 +27,7 @@
 						data-toggle="dropdown" href="#">Forncedores <span
 							class="caret"></span></a>
 						<ul class="dropdown-menu">
-							<li><a href="formularioNew.jsp">Cadastrar</a></li>
+							<li><a href="sistema.do?logica=CadastrarFornecedor">Cadastrar</a></li>
 							<li><a href="sistema.do?logica=ListaFornecedor">Visualizar</a></li>
 						</ul></li>
 					<li><a href="#">Produtos</a></li>
