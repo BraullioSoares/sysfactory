@@ -11,7 +11,7 @@ public class TestaConexao {
 
 	public static void main(String[] args){
 		testAdiciona();
-//		testRemove(10);
+//		testListar();
 //		testBuscarTodos();
 	
 	}
@@ -29,6 +29,18 @@ public class TestaConexao {
 		
 	} 
 	
+	private static void testAdicionaFornecedor (){
+		FornecedorDao dao = new FornecedorDao();
+		Fornecedor f = new Fornecedor();
+		
+		f.setNome("Teste");
+		f.setEmail("joao@joao.com");
+		f.setTipoProduto("Tipo");
+		
+		dao.adiciona(f);
+		
+	}
+	
 	private static void testRemove (int id){
 		FornecedorDao dao = new FornecedorDao();
 		Fornecedor f = new Fornecedor();
@@ -39,12 +51,15 @@ public class TestaConexao {
 		
 	}
 	
-	private static void testBuscarTodos (){
-		FornecedorDao dao = new FornecedorDao();
-		List<Fornecedor> lista = dao.buscarTodos();
+	private static void testListar (){
+		UsuarioDao dao = new UsuarioDao();
+		List<Usuario> lista = dao.getLista();
 		
-		for (Fornecedor fornecedor : lista) {
-			System.out.println(fornecedor);
+		for (Usuario u : lista) {
+			System.out.println(u.getId());
+			System.out.println(u.getUser());
+			System.out.println(u.getSenha());
+			System.out.println(u.getEmail());
 		}
 	}
 

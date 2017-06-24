@@ -7,6 +7,6 @@
 <script src="libs/jquery/jquery.min.js"></script>
 <script src="libs/js/main.js"></script>
 <script src="libs/bootstrap/js/bootstrap.min.js"></script>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta charset="utf-8">
 <title>Sigefs</title>
 </head>

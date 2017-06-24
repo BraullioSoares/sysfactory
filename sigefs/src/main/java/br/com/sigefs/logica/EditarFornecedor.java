@@ -17,7 +17,7 @@ public class EditarFornecedor implements Logica{
 		
 		req.setAttribute("forn", f);
 		
-		return "formularioEdit.jsp";
+		return "/WEB-INF/jsp/formularioEdit.jsp";
 	}
 
 }

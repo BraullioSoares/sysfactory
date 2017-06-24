@@ -26,15 +26,15 @@
 							<div class="col-lg-12">
 								<form id="login-form" action="autenticador.do" method="post"  style="display: block;">
 									<div class="form-group">
-										<input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="">
+										<input type="text" name="user" id="username" tabindex="1" class="form-control" placeholder="Username" value="">
 									</div>
 									<div class="form-group">
-										<input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
+										<input type="password" name="senha" id="password" tabindex="2" class="form-control" placeholder="Password">
 									</div>
 									<div class="form-group">
 										<div class="row">
 											<div class="col-sm-6 col-sm-offset-3">
-												<input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-login" value="Log In">
+												<input type="submit" name="login-submit" id="login-submit" tabindex="3" class="form-control btn btn-login" value="Log In">
 											</div>
 										</div>
 									</div>
@@ -45,16 +45,16 @@
 										<input type="text" name="user" id="username" tabindex="1" class="form-control" placeholder="Usuário" value="" required>
 									</div>
 									<div class="form-group">
-										<input type="email" name="email" id="email" tabindex="1" class="form-control" placeholder="Email Address" value="" required>
+										<input type="email" name="email" id="email" tabindex="2" class="form-control" placeholder="Email Address" value="" required>
 									</div>
 									<div class="form-group">
-										<input type="password" name="senha" id="password" tabindex="2" class="form-control" placeholder="Senha" required>
+										<input type="password" name="senha" id="password" tabindex="3" class="form-control" placeholder="Senha" required>
 									</div>
 									<div class="form-group">
 										<div class="row">
 											<div class="col-sm-6 col-sm-offset-3">
 												<input type="text" name="logica" value="CadastrarUsuario" class="hidden">
-												<input type="submit"  tabindex="3" class="form-control btn btn-register" value="Cadastre-se" >
+												<input type="submit"  tabindex="4" class="form-control btn btn-register" value="Cadastre-se" >
 											</div>
 										</div>
 									</div>
