@@ -12,7 +12,7 @@ import javax.servlet.http.HttpSession;
 import br.com.sigefs.dao.UsuarioDao;
 import br.com.sigefs.model.Usuario;
 
-@WebServlet(name="autenticador.do", urlPatterns = {"/autenticador.do","/pages/autenticador.do"})
+@WebServlet(urlPatterns={"/autenticador.do"})
 public class AutenticadorController extends HttpServlet{
 
 	private static final long serialVersionUID = 1L;

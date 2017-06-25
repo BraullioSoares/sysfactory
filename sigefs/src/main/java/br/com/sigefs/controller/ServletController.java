@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import br.com.sigefs.logica.Logica;
 
 
-@WebServlet(name="sistema", urlPatterns = {"/sistema.do"})
+@WebServlet(name="sistema", urlPatterns = {"/sistema.do", "/pages/sistema.do"})
 public class ServletController extends HttpServlet{
 
 	private static final long serialVersionUID = 1L;
