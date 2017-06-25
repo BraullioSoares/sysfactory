@@ -18,7 +18,7 @@ public class UsuarioDao implements CrudUsuario{
 
 	@Override
 	public void adiciona(Usuario u) {
-		String sql =  "insert into usuarios " + "(email,usuario,senha)"
+		String sql =  "insert into usuarios " + "(email,usuario,senha=md5(?))"
 				+ " values (?,?,?)";
 		try{
 			PreparedStatement stmt = connection.prepareStatement(sql);
@@ -64,7 +64,7 @@ public class UsuarioDao implements CrudUsuario{
 
 	@Override
 	public void altera(Usuario u) {
-		String sql = "update usuarios set email=?, usuario=?," + "senha=? where id=?";
+		String sql = "update usuarios set email=?, usuario=?," + "senha=md5(?) where id=?";
 
 		try {
 			PreparedStatement stmt = connection.prepareStatement(sql);
@@ -138,7 +138,7 @@ public class UsuarioDao implements CrudUsuario{
 
 	@Override
 	public Usuario autentica(Usuario u) {
-		String sql = "select * from usuarios where usuario=? and senha=?";
+		String sql = "select * from usuarios where usuario=? and senha=md5(?)";
 		
 		try (PreparedStatement preparador = connection.prepareStatement(sql)){
 			preparador.setString(1, u.getUser());

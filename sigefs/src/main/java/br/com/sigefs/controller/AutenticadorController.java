@@ -12,15 +12,26 @@ import javax.servlet.http.HttpSession;
 import br.com.sigefs.dao.UsuarioDao;
 import br.com.sigefs.model.Usuario;
 
-@WebServlet(name="autenticador.do", urlPatterns = {"/autenticador.do","/pages/autenticador.do"})
+@WebServlet(urlPatterns={"/autenticador.do"})
 public class AutenticadorController extends HttpServlet{
 
 	private static final long serialVersionUID = 1L;
+	
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		HttpSession sessao = req.getSession(false);
+		
+		if(sessao != null){
+			sessao.invalidate();
+		}
+		
+		resp.sendRedirect("login.jsp");
+	}
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		String usu = req.getParameter("usuario");
+		String usu = req.getParameter("user");
 		String senha = req.getParameter("senha");
 		
 		Usuario u = new Usuario();
@@ -37,7 +48,7 @@ public class AutenticadorController extends HttpServlet{
 			
 			sessao.setMaxInactiveInterval(60*5);
 			
-			req.getRequestDispatcher("/WEB-INF/index.jsp").forward(req, resp);
+			req.getRequestDispatcher("/WEB-INF/jsp/index.jsp").forward(req, resp);
 			
 		} else {
 			

@@ -16,9 +16,9 @@ public class CadastrarUsuario implements Logica {
 			u.setUser(req.getParameter("user"));
 			u.setSenha(req.getParameter("senha"));
 			UsuarioDao dao = new UsuarioDao();
-			dao.salvar(u);
+			dao.adiciona(u);
 		
-		return "index.jsp";
+		return "login.jsp";
 	}
 
 }

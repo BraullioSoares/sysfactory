@@ -26,7 +26,7 @@
     </div>
     <div class="form-group">
       <label for="tipoProd">Matéria Prima :</label>
-      <textarea class="form-control" rows="5" id="tipoProd" name="tipoProd" required></textarea>
+      <textarea class="form-control" rows="5" id="tipoProd" name="tipoProd" maxlength="255" placeholder="Digite aqui um breve descrição..." required></textarea>
     </div>
       <input type="text" name="logica" value="CadastrarFornecedor" class="hidden">
       <button type="submit" class="btn btn-success">Cadastrar</button>

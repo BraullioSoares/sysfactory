@@ -21,7 +21,7 @@ public class SalvarFornecedor implements Logica {
 		
 		dao.salvar(f);
 		
-		return "/WEB-INF/jsp/lista-fornecedor.jsp";
+		return "sistema.do?logica=ListaFornecedor";
 	}
 
 }

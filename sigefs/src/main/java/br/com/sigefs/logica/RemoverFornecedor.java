@@ -19,7 +19,7 @@ public class RemoverFornecedor implements Logica{
 		
 		dao.remove(f);
 			
-		return "/WEB-INF/jsp/lista-fornecedor.jsp";
+		return "sistema.do?logica=ListaFornecedor";
 	}
 
 }
