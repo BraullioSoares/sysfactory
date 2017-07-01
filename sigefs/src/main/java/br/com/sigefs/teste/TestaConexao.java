@@ -2,18 +2,41 @@ package br.com.sigefs.teste;
 
 import java.util.List;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
 import br.com.sigefs.dao.FornecedorDao;
 import br.com.sigefs.dao.UsuarioDao;
 import br.com.sigefs.model.Fornecedor;
+import br.com.sigefs.model.Produto;
 import br.com.sigefs.model.Usuario;
 
 public class TestaConexao {
 
 	public static void main(String[] args){
-		testAdiciona();
+//		testAdiciona();
 //		testListar();
 //		testBuscarTodos();
-	
+		
+		Produto prod = new Produto();
+		
+		prod.setNome("Sandalia");
+		prod.setDescricao("Bill Confort");
+		prod.setPreco(99);
+		prod.setQuant(100);
+		
+		EntityManagerFactory factory = Persistence.createEntityManagerFactory("Produto");
+		
+		EntityManager manager = factory.createEntityManager();
+		
+		manager.getTransaction().begin();
+		manager.persist(prod);
+		manager.getTransaction().commit();
+		
+		System.out.println(prod.toString());
+		
+		manager.close();
 	}
 	
 	private static void testAdiciona (){

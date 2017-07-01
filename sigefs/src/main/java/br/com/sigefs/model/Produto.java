@@ -1,7 +1,18 @@
 package br.com.sigefs.model;
 
-public class Produto {
+import java.io.Serializable;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
+public class Produto implements Serializable {
+	
+	@Id
+	@GeneratedValue
 	private Integer cod;
+	
 	private String nome;
 	private String descricao;
 	private double preco;
@@ -44,4 +55,10 @@ public class Produto {
 	public void setCodFornecedor(Integer codFornecedor) {
 		this.codFornecedor = codFornecedor;
 	}
+	@Override
+	public String toString() {
+		return "Produto [cod=" + cod + ", nome=" + nome + ", descricao=" + descricao + ", preco=" + preco + ", quant="
+				+ quant + ", codFornecedor=" + codFornecedor + "]";
+	}
+	
 }
