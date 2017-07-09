@@ -11,7 +11,7 @@
   	
   	<div class="form-group">
       <label for="name">Código:</label>
-      <input type="text" class="form-control" name="id" value="${forn.id}" readonly>
+      <input type="text" class="form-control" name="id" value="FRND${forn.id}" readonly>
     </div>
   	<div class="form-group">
       <label for="name">Nome:</label>

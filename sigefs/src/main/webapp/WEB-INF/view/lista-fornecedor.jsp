@@ -22,7 +22,6 @@
 					<td>${fornecedor.nome}</td>
 					<td>${fornecedor.email}</td>
 					<td>${fornecedor.tel}</td>
-					<td>${fornecedor.tipoProduto}</td>
 					<td>
 						<buttom class="btn btn-success" onclick="btnEditar(${fornecedor.id})">Editar</buttom>
 						<buttom class="btn btn-danger" onclick="confirmaExclusao(${fornecedor.id})">Excluir</buttom>

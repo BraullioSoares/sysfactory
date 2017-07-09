@@ -3,39 +3,51 @@ package br.com.sigefs.dao;
 import java.util.List;
 
 import javax.persistence.EntityManager;
-import javax.persistence.Query;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Primary;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import br.com.sigefs.model.Cliente;
 
+@Repository
+@Primary
 public class ClienteDao {
-	EntityManager em;
 	
-	public ClienteDao(EntityManager em) {
-		this.em = em;
+	@Autowired
+	private EntityManager em;
+	
+	//insert
+	@Transactional
+	public void adiciona(Cliente cliente) {
+		em.persist(cliente);
 	}
 	
-	//insert or Update
-	public void salvar(Cliente c) {
-		em.getTransaction().begin();
-		em.merge(c);
-		em.getTransaction().commit();
+	//update
+	@Transactional
+	public void altera(Cliente cliente) {
+		em.merge(cliente);
 	}
 	
 	//busca
-	public Cliente buscaPorId (int id) {
+	public Cliente getCliente(Integer id) {
 		return em.find(Cliente.class, id);
 	}
 	
+	
 	//listar
-	public List<Cliente> lista() {
-		Query q = em.createQuery("select p from Cliente p");
-		return q.getResultList();
+	@Transactional(readOnly=true)
+	public List<Cliente> getLista() {
+		List<Cliente> result = em.createQuery("from cliente", 
+				Cliente.class).getResultList();
+		return result;
 	}
 	
 	//remover
-	public void remover (Cliente c) {
-		em.getTransaction().begin();
-		em.remove(c);
-		em.getTransaction().commit();
+	@Transactional
+	public void remove(Cliente cliente) {
+		em.remove(em.merge(cliente));
 	}
+
 }

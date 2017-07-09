@@ -29,7 +29,7 @@ EntityManager em;
 	
 	//listar
 	public List<Fornecedor> lista() {
-		Query q = em.createQuery("select f from fornecedor f");
+		Query q = em.createQuery("select f from Fornecedor f");
 		return q.getResultList();
 	}
 	

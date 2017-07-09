@@ -1,9 +1,13 @@
 package br.com.sigefs.model;
 
+import java.util.List;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Fornecedor {
@@ -14,9 +18,18 @@ public class Fornecedor {
 	private String nome;
 	private String email;
 	private String tel;
-	private String tipoProduto;
 	
+	@ManyToOne
+	private MateriaPrima materia;
 	
+	public MateriaPrima getMateria() {
+		return materia;
+	}
+
+	public void setMateria(MateriaPrima materia) {
+		this.materia = materia;
+	}
+
 	public Integer getId() {
 		return id;
 	}
@@ -50,18 +63,10 @@ public class Fornecedor {
 		this.tel = tel;
 	}
 
-	public String getTipoProduto() {
-		return tipoProduto;
-	}
-
-	public void setTipoProduto(String tipoProduto) {
-		this.tipoProduto = tipoProduto;
-	}
-	
 	@Override
 	public String toString() {
 		return "Fornecedor [id=" + id + ", nome=" + nome + ", email=" + email + ", tel=" + tel + ", tipoProduto="
-				+ tipoProduto + "]";
+				+ materia + "]";
 	}
 
 	

@@ -15,8 +15,7 @@ public class SalvarFornecedor implements Logica {
 		f.setNome(req.getParameter("name"));
 		f.setEmail(req.getParameter("email"));
 		f.setTel(req.getParameter("phone"));
-		f.setTipoProduto(req.getParameter("tipoProd"));
-		
+	
 		FornecedorDao dao = new FornecedorDao();
 		
 		dao.salvar(f);

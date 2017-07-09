@@ -38,7 +38,7 @@ public class UsuarioDao implements CrudUsuario{
 		
 		try {
 			
-			List<Usuario> usu = new ArrayList<>();
+			List<Usuario> usu = new ArrayList<Usuario>();
 			PreparedStatement stmt = this.connection.prepareStatement("select * from usuarios order by id");
 			ResultSet rs = stmt.executeQuery();
 			

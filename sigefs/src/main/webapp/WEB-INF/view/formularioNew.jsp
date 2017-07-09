@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+    
 <!DOCTYPE html>
 <%@ include file="head.jsp"%>
 
@@ -26,14 +28,17 @@
     </div>
     <div class="form-group">
       <label for="tipoProd">Matéria Prima :</label>
-      <textarea class="form-control" rows="5" id="tipoProd" name="tipoProd" maxlength="255" placeholder="Digite aqui um breve descrição..." required></textarea>
+   		<select class="selectpicke form-control" data-width="auto">
+			<c:forEach var="materia" items="${lista_materia}">
+  				<option title="${materia.material_id}">${materia.descricao}</option>
+  			</c:forEach>
+		</select>
     </div>
       <input type="text" name="logica" value="CadastrarFornecedor" class="hidden">
       <button type="submit" class="btn btn-success">Cadastrar</button>
   </form>
 </div>
-<div class="container Jumbotron col-md-6 hidden" >
-	<h1>Cadastrado com sucesso!!</h1>
+<div class="col-md-6 " >
 
 </div>
 </body>
