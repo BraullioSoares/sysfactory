@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aop-reference-model>
+<aop-project name="spring-security-fundamentals"/>
+<aop-project name="sigefs"/>
+<aop-project name="springboot-crud-dao"/>
+</aop-reference-model>

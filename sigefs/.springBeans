@@ -9,6 +9,7 @@
 	<configs>
 	</configs>
 	<autoconfigs>
+		<config>java:br.com.sigefs.Boot</config>
 	</autoconfigs>
 	<configSets>
 	</configSets>

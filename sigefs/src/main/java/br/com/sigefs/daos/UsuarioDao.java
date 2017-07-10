@@ -1,0 +1,50 @@
+package br.com.sigefs.daos;
+
+import java.util.List;
+import javax.persistence.EntityManager;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Primary;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+import br.com.sigefs.models.Usuario;
+
+@Repository
+@Primary
+public class UsuarioDao {
+	
+	@Autowired
+	private EntityManager em;
+	
+	//insert
+	@Transactional
+	public void adiciona(Usuario Usuario) {
+		em.persist(Usuario);
+	}
+	
+	//update
+	@Transactional
+	public void altera(Usuario Usuario) {
+		em.merge(Usuario);
+	}
+	
+	//busca
+	public Usuario getUsuario(Integer id) {
+		return em.find(Usuario.class, id);
+	}
+	
+	
+	//listar
+	@Transactional(readOnly=true)
+	public List<Usuario> getLista() {
+		List<Usuario> result = em.createQuery("from usuario", 
+				Usuario.class).getResultList();
+		return result;
+	}
+	
+	//remover
+	@Transactional
+	public void remove(Usuario Usuario) {
+		em.remove(em.merge(Usuario));
+	}
+
+}

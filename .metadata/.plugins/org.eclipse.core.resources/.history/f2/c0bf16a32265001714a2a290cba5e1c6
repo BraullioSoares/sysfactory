@@ -1,0 +1,23 @@
+package br.com.sigefs;
+
+import org.junit.Test;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import br.com.sigefs.daos.UsuarioDao;
+import br.com.sigefs.models.Usuario;
+
+@SpringBootApplication
+public class Boot
+{
+
+   public static void main(String[] args)
+   {
+//      SpringApplication.run(Boot.class, args);
+		
+		UsuarioDao  ud = new UsuarioDao();
+
+		Usuario u = new Usuario("admin", "admin");
+		ud.adiciona(u);
+
+   }
+}
