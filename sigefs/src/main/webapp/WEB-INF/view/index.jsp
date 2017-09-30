@@ -5,11 +5,18 @@
 <html>
 <%@ include file="head.jsp" %>
 <body>
-<%@ include file="header.jsp" %>
+<!-- container section start -->
+<section id="container" class="">
+    <!--header end-->
+	<%@ include file="header.jsp" %>
+    <!--sidebar start-->
+	<%@ include file="sidebar.jsp" %>
+    <!--sidebar end-->
 
-<div class="jumbotron">
-	<h1 class="container">Bem Vindo, ${usuAutenticado.user}</h1>
-
-</div>
+    <!--main content start-->
+	<%@ include file="main.jsp" %>
+    <!--main content end-->
+</section>
+	<%@ include file="footer.jsp" %>
 </body>
 </html>

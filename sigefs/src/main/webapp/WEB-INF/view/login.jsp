@@ -4,44 +4,28 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
 <%@ include file="head.jsp"%>
-<body>
-	<div class="container">
-<div class="container">
-    	<div class="row">
-			<div class="col-md-6 col-md-offset-3">
-				<div class="panel panel-login">
-					<div class="panel-heading">
-						<div class="row">
-							<div class="col-xs-6">
-								<a href="#" class="active" id="login-form-link"></a>
-							</div>
-						</div>
-					</div>
-					<div class="panel-body">
-						<div class="row">
-							<div class="col-lg-12">
-								<form id="login-form" action="autenticador.do" method="post"  style="display: block;">
-									<div class="form-group">
-										<input type="text" name="user" id="username" tabindex="1" class="form-control" placeholder="Username" value="">
-									</div>
-									<div class="form-group">
-										<input type="password" name="senha" id="password" tabindex="2" class="form-control" placeholder="Password">
-									</div>
-									<div class="form-group">
-										<div class="row">
-											<div class="col-sm-6 col-sm-offset-3">
-												<input type="submit" name="login-submit" id="login-submit" tabindex="3" class="form-control btn btn-login" value="Log In">
-											</div>
-										</div>
-									</div>
-								</form>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	</div>
-</body>
+<body class="login-img3-body">
+
+    <div class="container">
+
+      <form class="login-form" action="/home">        
+        <div class="login-wrap">
+            <p class="login-img"><i class="icon_lock_alt"></i></p>
+            <div class="input-group">
+              <span class="input-group-addon"><i class="icon_profile"></i></span>
+              <input type="text" class="form-control" placeholder="Usuario" autofocus>
+            </div>
+            <div class="input-group">
+                <span class="input-group-addon"><i class="icon_key_alt"></i></span>
+                <input type="password" class="form-control" placeholder="Senha">
+            </div>
+            <label class="checkbox">
+                <input type="checkbox" value="remember-me"> Lembre-me
+                <span class="pull-right"> <a href="#"> Esqueceu a senha?</a></span>
+            </label>
+            <button class="btn btn-primary btn-lg btn-block" type="submit">Entrar</button>
+        </div>
+      </form>
+    </div>  
+  </body>
 </html>
