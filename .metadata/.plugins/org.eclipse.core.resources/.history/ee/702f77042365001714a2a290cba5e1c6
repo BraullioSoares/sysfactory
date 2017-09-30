@@ -1,0 +1,17 @@
+package br.com.sigefs;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import br.com.sigefs.daos.UsuarioDao;
+import br.com.sigefs.models.Usuario;
+
+@SpringBootApplication
+public class Boot
+{
+
+   public static void main(String[] args)
+   {
+      SpringApplication.run(Boot.class, args);
+   }
+}
